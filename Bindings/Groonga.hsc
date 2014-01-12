@@ -440,7 +440,7 @@ import Foreign.Ptr
 #field name_size , CUInt
 #field value , <_grn_obj>
 #stoptype
-#callback grn_plugin_func , Ptr <_grn_ctx> -> IO <grn_rc>
+#callback_t grn_plugin_func , Ptr <_grn_ctx> -> IO <grn_rc>
 {- typedef enum {
             GRN_PROC_TOKENIZER = 1,
             GRN_PROC_COMMAND,
