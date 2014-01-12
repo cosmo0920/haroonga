@@ -12,3 +12,4 @@ Low level Haskell binding for Groonga.
 ## export module(s)
 
 * Binding.Groonga
+* Binding.Groonga.SimpleAPI
