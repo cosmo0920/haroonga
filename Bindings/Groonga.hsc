@@ -212,6 +212,16 @@ import Foreign.Ptr
 #num GRN_LOG_INFO
 #num GRN_LOG_DEBUG
 #num GRN_LOG_DUMP
+{- log flags -}
+#num GRN_QUERY_LOG_NONE
+#num GRN_QUERY_LOG_COMMAND
+#num GRN_QUERY_LOG_RESULT_CODE
+#num GRN_QUERY_LOG_DESTINATION
+#num GRN_QUERY_LOG_CACHE
+#num GRN_QUERY_LOG_SIZE
+#num GRN_QUERY_LOG_SCORE
+#num GRN_QUERY_LOG_ALL
+#num GRN_QUERY_LOG_DEFAULT
 {- typedef enum {
             GRN_CONTENT_NONE = 0,
             GRN_CONTENT_TSV,
@@ -231,13 +241,15 @@ import Foreign.Ptr
 {- typedef struct _grn_ctx grn_ctx; -}
 -- #opaque_t _grn_ctx
 -- #synonym_t grn_ctx , <_grn_ctx>
+#num GRN_CTX_MSGSIZE
+#num GRN_CTX_FIN
 {- typedef union {
             int int_value; grn_id id; void * ptr;
         } grn_user_data; -}
 #starttype grn_user_data
-#field int_value , CInt
-#field id , CUInt
-#field ptr , Ptr ()
+#union_field int_value , CInt
+#union_field id , CUInt
+#union_field ptr , Ptr ()
 #stoptype
 #callback_t grn_proc_func , Ptr <_grn_ctx> -> CInt -> Ptr (Ptr <_grn_obj>) -> Ptr <grn_user_data> -> IO (Ptr <_grn_obj>)
 {- struct _grn_ctx {
@@ -281,6 +293,9 @@ import Foreign.Ptr
 #array_field trace , Ptr ()
 #array_field errbuf , CChar
 #stoptype
+#num GRN_CTX_USE_QL
+#num GRN_CTX_BATCH_MODE
+#num GRN_CTX_PER_DB
 #ccall grn_ctx_init , Ptr <_grn_ctx> -> CInt -> IO <grn_rc>
 #ccall grn_ctx_fin , Ptr <_grn_ctx> -> IO <grn_rc>
 #ccall grn_ctx_open , CInt -> IO (Ptr <_grn_ctx>)
@@ -323,6 +338,87 @@ import Foreign.Ptr
     unsigned int weight;
     grn_id domain;
 }; -}
+{- obj macros -}
+#num GRN_OBJ_TABLE_TYPE_MASK
+#num GRN_OBJ_TABLE_HASH_KEY
+#num GRN_OBJ_TABLE_PAT_KEY
+#num GRN_OBJ_TABLE_DAT_KEY
+#num GRN_OBJ_TABLE_NO_KEY
+
+#num GRN_OBJ_KEY_MASK
+#num GRN_OBJ_KEY_UINT
+#num GRN_OBJ_KEY_INT
+#num GRN_OBJ_KEY_FLOAT
+#num GRN_OBJ_KEY_GEO_POINT
+
+#num GRN_OBJ_KEY_WITH_SIS
+#num GRN_OBJ_KEY_NORMALIZE
+
+#num GRN_OBJ_COLUMN_TYPE_MASK
+#num GRN_OBJ_COLUMN_SCALAR
+#num GRN_OBJ_COLUMN_VECTOR
+#num GRN_OBJ_COLUMN_INDEX
+
+#num GRN_OBJ_COMPRESS_MASK
+#num GRN_OBJ_COMPRESS_NONE
+#num GRN_OBJ_COMPRESS_ZLIB
+#num GRN_OBJ_COMPRESS_LZO
+
+#num GRN_OBJ_WITH_SECTION
+#num GRN_OBJ_WITH_WEIGHT
+#num GRN_OBJ_WITH_POSITION
+#num GRN_OBJ_RING_BUFFER
+
+#num GRN_OBJ_UNIT_MASK
+#num GRN_OBJ_UNIT_DOCUMENT_NONE
+#num GRN_OBJ_UNIT_DOCUMENT_SECTION
+#num GRN_OBJ_UNIT_DOCUMENT_POSITION
+#num GRN_OBJ_UNIT_SECTION_NONE
+#num GRN_OBJ_UNIT_SECTION_POSITION
+#num GRN_OBJ_UNIT_POSITION_NONE
+#num GRN_OBJ_UNIT_USERDEF_DOCUMENT
+#num GRN_OBJ_UNIT_USERDEF_SECTION
+#num GRN_OBJ_UNIT_USERDEF_POSITION
+
+#num GRN_OBJ_NO_SUBREC
+#num GRN_OBJ_WITH_SUBREC
+
+#num GRN_OBJ_KEY_VAR_SIZE
+
+#num GRN_OBJ_TEMPORARY
+#num GRN_OBJ_PERSISTENT
+
+{- obj types -}
+
+#num GRN_VOID
+#num GRN_BULK
+#num GRN_PTR
+#num GRN_UVECTOR
+#num GRN_PVECTOR
+#num GRN_VECTOR
+#num GRN_MSG
+#num GRN_QUERY
+#num GRN_ACCESSOR
+#num GRN_SNIP
+#num GRN_PATSNIP
+#num GRN_STRING
+#num GRN_CURSOR_TABLE_HASH_KEY
+#num GRN_CURSOR_TABLE_PAT_KEY
+#num GRN_CURSOR_TABLE_DAT_KEY
+#num GRN_CURSOR_TABLE_NO_KEY
+#num GRN_CURSOR_COLUMN_INDEX
+#num GRN_CURSOR_COLUMN_GEO_INDEX
+#num GRN_TYPE
+#num GRN_PROC
+#num GRN_EXPR
+#num GRN_TABLE_HASH_KEY
+#num GRN_TABLE_PAT_KEY
+#num GRN_TABLE_DAT_KEY
+#num GRN_TABLE_NO_KEY
+#num GRN_DB
+#num GRN_COLUMN_FIX_SIZE
+#num GRN_COLUMN_VAR_SIZE
+#num GRN_COLUMN_INDEX
 #starttype struct _grn_section
 #field offset , CUInt
 #field length , CUInt
@@ -469,6 +565,18 @@ import Foreign.Ptr
 #ccall grn_table_truncate , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> IO <grn_rc>
 {- typedef grn_obj grn_table_cursor; -}
 #synonym_t grn_table_cursor , <_grn_obj>
+{- grn cursor -}
+#num GRN_CURSOR_ASCENDING
+#num GRN_CURSOR_DESCENDING
+#num GRN_CURSOR_GE
+#num GRN_CURSOR_GT
+#num GRN_CURSOR_LE
+#num GRN_CURSOR_LT
+#num GRN_CURSOR_BY_KEY
+#num GRN_CURSOR_BY_ID
+#num GRN_CURSOR_PREFIX
+#num GRN_CURSOR_SIZE_BY_BIT
+#num GRN_CURSOR_RK
 #ccall grn_table_cursor_open , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> Ptr () -> CUInt -> Ptr () -> CUInt -> CInt -> CInt -> CInt -> IO (Ptr <_grn_obj>)
 #ccall grn_table_cursor_close , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> IO <grn_rc>
 #ccall grn_table_cursor_next , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> IO CUInt
