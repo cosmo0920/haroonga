@@ -1,0 +1,12 @@
+language: haskell
+
+before_install:
+ - curl https://raw.github.com/groonga/groonga/master/data/travis/setup.sh | sh
+
+script:
+  - cabal configure
+  - cabal build
+
+install:
+  - cabal sandbox init
+  - cabal install --only-dependencies
