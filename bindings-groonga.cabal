@@ -11,6 +11,7 @@ author:                cosmo0920
 maintainer:            cosmo0920.wp@gmail.com
 category:              FFI
 build-type:            Simple
+stability:             Experimental
 extra-source-files:    README.md
 cabal-version:         >=1.10
 
