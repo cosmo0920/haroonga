@@ -5,7 +5,7 @@ name:                  haroonga
 version:               0.1.0.0
 synopsis:              Low level bindings for Groonga.
 description:           Bindings to Groonga  <http://groonga.org/>.
-license:               LGPLv2.1
+license:               LGPL-2.1
 license-file:          LICENSE
 author:                cosmo0920
 maintainer:            cosmo0920.wp@gmail.com
