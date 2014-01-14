@@ -1,4 +1,4 @@
-Bindings-Groonga
+Haroonga
 ===
 
 [![Build Status](https://travis-ci.org/cosmo0920/bindings-groonga.png?branch=master)](https://travis-ci.org/cosmo0920/bindings-groonga)
