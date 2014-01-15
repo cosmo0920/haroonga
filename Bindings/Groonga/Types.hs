@@ -6,3 +6,6 @@ module Bindings.Groonga.Types where
   Currently, /Command/ = /String/
 -}
 type Command = String
+
+{-| Groonga Database name -}
+type Database = String

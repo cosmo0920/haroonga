@@ -27,13 +27,13 @@ grn_ctx_fin ctx = do
   rc <- c'grn_fin
   return rc
 
-grn_database_open :: Ptr C'_grn_ctx -> String -> IO (Ptr C'_grn_obj)
+grn_database_open :: Ptr C'_grn_ctx -> Database -> IO (Ptr C'_grn_obj)
 grn_database_open ctx dbpath = do
   dbname <- newCAString dbpath
   db <- c'grn_db_open ctx dbname
   return db
 
-grn_database_create :: Ptr C'_grn_ctx -> String -> IO (Ptr C'_grn_obj)
+grn_database_create :: Ptr C'_grn_ctx -> Database -> IO (Ptr C'_grn_obj)
 grn_database_create ctx dbpath = do
   dbname <- newCAString dbpath
   db <- c'grn_db_create ctx dbname nullPtr
