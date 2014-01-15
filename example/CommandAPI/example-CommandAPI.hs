@@ -1,5 +1,5 @@
 import Bindings.Groonga
-import Bindings.Groonga.SimpleAPI
+import Bindings.Groonga.CommandAPI
 
 -- ref: example in http://qiita.com/groonga/items/71b145b37d77bd160bf2
 main :: IO ()
