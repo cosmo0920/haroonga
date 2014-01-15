@@ -17,7 +17,7 @@ cabal-version:         >=1.10
 
 library
   exposed-modules:     Bindings.Groonga
-                       Bindings.Groonga.SimpleAPI
+                       Bindings.Groonga.CommandAPI
   build-depends:       base         >= 4.5 && < 5
                      , bindings-DSL >= 1.0 && < 1.2
   hs-source-dirs:      .

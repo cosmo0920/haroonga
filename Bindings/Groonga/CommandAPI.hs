@@ -1,4 +1,4 @@
-module Bindings.Groonga.SimpleAPI
+module Bindings.Groonga.CommandAPI
   ( grn_ctx_init
   , grn_ctx_fin
   , grn_database_open
