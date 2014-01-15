@@ -5,8 +5,10 @@ module Bindings.Groonga.CommandAPI
   , grn_database_create
   , grn_execute_command
   , grn_get_errbuf
-  , grn_get_version ) where
+  , grn_get_version
+  , module Bindings.Groonga.Types ) where
 import Bindings.Groonga
+import Bindings.Groonga.Types
 import Foreign.C.String
 import Foreign.C.Types
 import Foreign.Ptr
@@ -37,7 +39,7 @@ grn_database_create ctx dbpath = do
   db <- c'grn_db_create ctx dbname nullPtr
   return db
 
-grn_execute_command :: Ptr C'_grn_ctx -> String -> IO String
+grn_execute_command :: Ptr C'_grn_ctx -> Command -> IO String
 grn_execute_command ctx command = do
   let command_len = length command
       flag        = 0
