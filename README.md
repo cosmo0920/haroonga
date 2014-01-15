@@ -15,3 +15,4 @@ Low level Haskell binding for Groonga.
 
 * Binding.Groonga
 * Binding.Groonga.SimpleAPI
+* Binding.Groonga.Types
