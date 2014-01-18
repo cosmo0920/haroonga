@@ -13,6 +13,7 @@ Low level Haskell binding for Groonga.
 
 ## export module(s)
 
-* Binding.Groonga
-* Binding.Groonga.SimpleAPI
-* Binding.Groonga.Types
+* Bindings.Groonga
+* Bindings.Groonga.Raw
+* Bindings.Groonga.SimpleAPI
+* Bindings.Groonga.Types
