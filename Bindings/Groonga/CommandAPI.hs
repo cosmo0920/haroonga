@@ -14,6 +14,8 @@ import Foreign.C.Types
 import Foreign.Ptr
 import Foreign.Marshal.Alloc
 import Foreign.Storable
+import Control.Monad.Trans.Resource
+import Control.Monad.IO.Class
 
 grn_ctx_init :: IO (Ptr C'_grn_ctx)
 grn_ctx_init = do
@@ -40,20 +42,17 @@ grn_database_create ctx dbpath = do
   return db
 
 grn_execute_command :: Ptr C'_grn_ctx -> Command -> IO String
-grn_execute_command ctx command = do
+grn_execute_command ctx command = runResourceT $ do
   let command_len = length command
       flag        = 0
-  ccommand <- newCAString command
-  _ <- c'grn_ctx_send ctx ccommand (fromIntegral command_len) flag
-  received_res  <- malloc :: IO (Ptr CString)
-  received_len  <- malloc :: IO (Ptr CUInt)
-  received_flag <- malloc :: IO (Ptr CInt)
-  _ <- c'grn_ctx_recv ctx received_res received_len received_flag
-  res_cstr <- peek received_res
-  res_str  <- peekCString res_cstr
-  free received_res
-  free received_len
-  free received_flag
+  ccommand <- liftIO $ newCAString command
+  _ <- liftIO $ c'grn_ctx_send ctx ccommand (fromIntegral command_len) flag
+  (_,received_res)  <- allocate (malloc :: IO (Ptr CString)) free
+  (_,received_len)  <- allocate (malloc :: IO (Ptr CUInt)) free
+  (_,received_flag) <- allocate (malloc :: IO (Ptr CInt)) free
+  _ <- liftIO $ c'grn_ctx_recv ctx received_res received_len received_flag
+  res_cstr <- liftIO $ peek received_res
+  res_str  <- liftIO $ peekCString res_cstr
   return res_str
 
 grn_get_errbuf :: Ptr C'_grn_ctx -> IO String
