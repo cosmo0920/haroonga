@@ -14,8 +14,8 @@ import Foreign.C.Types
 import Foreign.Ptr
 import Foreign.Marshal.Alloc
 import Foreign.Storable
-import Control.Monad.Trans.Resource (allocate, runResourceT)
-import Control.Monad.IO.Class (liftIO)
+import Control.Monad.Trans.Resource (allocate, release, runResourceT)
+import Control.Monad.Trans.Class (lift)
 
 grn_ctx_init :: IO (Ptr C'_grn_ctx)
 grn_ctx_init = do
@@ -45,14 +45,15 @@ grn_execute_command :: Ptr C'_grn_ctx -> Command -> IO String
 grn_execute_command ctx command = runResourceT $ do
   let command_len = length command
       flag        = 0
-  ccommand <- liftIO $ newCAString command
-  _ <- liftIO $ c'grn_ctx_send ctx ccommand (fromIntegral command_len) flag
-  (_,received_res)  <- allocate (malloc :: IO (Ptr CString)) free
-  (_,received_len)  <- allocate (malloc :: IO (Ptr CUInt)) free
-  (_,received_flag) <- allocate (malloc :: IO (Ptr CInt)) free
-  _ <- liftIO $ c'grn_ctx_recv ctx received_res received_len received_flag
-  res_cstr <- liftIO $ peek received_res
-  res_str  <- liftIO $ peekCString res_cstr
+  ccommand <- lift $ newCAString command
+  _ <- lift $ c'grn_ctx_send ctx ccommand (fromIntegral command_len) flag
+  (res_key,received_res)   <- allocate (malloc :: IO (Ptr CString)) free
+  (len_key,received_len)   <- allocate (malloc :: IO (Ptr CUInt)) free
+  (flag_key,received_flag) <- allocate (malloc :: IO (Ptr CInt)) free
+  _ <- lift $ c'grn_ctx_recv ctx received_res received_len received_flag
+  res_cstr <- lift $ peek received_res
+  res_str  <- lift $ peekCString res_cstr
+  lift $ mapM_ release [res_key, len_key, flag_key]
   return res_str
 
 grn_get_errbuf :: Ptr C'_grn_ctx -> IO String
