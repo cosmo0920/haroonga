@@ -14,8 +14,8 @@ import Foreign.C.Types
 import Foreign.Ptr
 import Foreign.Marshal.Alloc
 import Foreign.Storable
-import Control.Monad.Trans.Resource
-import Control.Monad.IO.Class
+import Control.Monad.Trans.Resource (allocate, runResourceT)
+import Control.Monad.IO.Class (liftIO)
 
 grn_ctx_init :: IO (Ptr C'_grn_ctx)
 grn_ctx_init = do
