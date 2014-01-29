@@ -313,6 +313,8 @@ import Foreign.Ptr
 #ccall grn_ctx_set_match_escalation_threshold , Ptr <_grn_ctx> -> CLong -> IO <grn_rc>
 #ccall grn_get_default_match_escalation_threshold , IO CLong
 #ccall grn_set_default_match_escalation_threshold , CLong -> IO <grn_rc>
+#ccall grn_get_lock_timeout , IO CInt
+#ccall grn_set_lock_timeout , CInt -> IO <grn_rc>
 {- typedef struct _grn_cache grn_cache; -}
 #opaque_t _grn_cache
 #synonym_t grn_cache , <_grn_cache>
@@ -966,6 +968,8 @@ import Foreign.Ptr
 #ccall grn_snip_open , Ptr <_grn_ctx> -> CInt -> CUInt -> CUInt -> CString -> CUInt -> CString -> CUInt -> Ptr <_grn_snip_mapping> -> IO (Ptr <_grn_snip>)
 #ccall grn_snip_close , Ptr <_grn_ctx> -> Ptr <_grn_snip> -> IO <grn_rc>
 #ccall grn_snip_add_cond , Ptr <_grn_ctx> -> Ptr <_grn_snip> -> CString -> CUInt -> CString -> CUInt -> CString -> CUInt -> IO <grn_rc>
+#ccall grn_snip_set_normalizer , Ptr <_grn_ctx> -> Ptr <_grn_snip> -> Ptr <_grn_obj> -> IO <grn_rc>
+#ccall grn_snip_get_normalizer , Ptr <_grn_ctx> -> Ptr <_grn_snip> -> IO (Ptr <_grn_obj>)
 #ccall grn_snip_exec , Ptr <_grn_ctx> -> Ptr <_grn_snip> -> CString -> CUInt -> Ptr CUInt -> Ptr CUInt -> IO <grn_rc>
 #ccall grn_snip_get_result , Ptr <_grn_ctx> -> Ptr <_grn_snip> -> CUInt -> CString -> Ptr CUInt -> IO <grn_rc>
 {- typedef struct _grn_logger_info grn_logger_info; -}
@@ -1198,6 +1202,7 @@ import Foreign.Ptr
 #synonym_t grn_expr_flags , CUInt
 #ccall grn_expr_parse , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CString -> CUInt -> Ptr <_grn_obj> -> <grn_operator> -> <grn_operator> -> CUInt -> IO <grn_rc>
 #ccall grn_expr_snip , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CInt -> CUInt -> CUInt -> CUInt -> Ptr CString -> Ptr CUInt -> Ptr CString -> Ptr CUInt -> Ptr <_grn_snip_mapping> -> IO (Ptr <_grn_snip>)
+#ccall grn_expr_snip_add_conditions , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> Ptr <_grn_snip> -> CUInt -> Ptr CString -> Ptr CUInt -> Ptr CString -> Ptr CUInt -> IO <grn_rc>
 #ccall grn_table_sort_key_from_str , Ptr <_grn_ctx> -> CString -> CUInt -> Ptr <_grn_obj> -> Ptr CUInt -> IO (Ptr <_grn_table_sort_key>)
 #ccall grn_table_sort_key_close , Ptr <_grn_ctx> -> Ptr <_grn_table_sort_key> -> CUInt -> IO <grn_rc>
 #ccall grn_table_is_grouped , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> IO CUChar
