@@ -17,3 +17,13 @@ Low level Haskell binding for Groonga.
 * Bindings.Groonga.Raw
 * Bindings.Groonga.SimpleAPI
 * Bindings.Groonga.Types
+
+## How to install
+
+install Groonga. see: http://groonga.org/docs/install/ubuntu.html#lts-precise-pangolin
+
+And then,
+
+```bash
+$ cabal install haroonga
+```
