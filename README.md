@@ -20,7 +20,8 @@ Low level Haskell binding for Groonga.
 
 ## How to install
 
-install Groonga. see: http://groonga.org/docs/install/ubuntu.html#lts-precise-pangolin
+Install Groonga.
+For example, if you use Ubuntu Linux, see: http://groonga.org/docs/install/ubuntu.html#lts-precise-pangolin
 
 And then,
 
