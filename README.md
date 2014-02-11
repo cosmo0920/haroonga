@@ -28,3 +28,7 @@ And then,
 ```bash
 $ cabal install haroonga
 ```
+
+## Support Platform
+
+* Currently, Haroonga supports __Linux platform only__.
