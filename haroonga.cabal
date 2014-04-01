@@ -18,6 +18,7 @@ cabal-version:         >=1.10
 library
   exposed-modules:     Bindings.Groonga
                        Bindings.Groonga.Raw
+                       Bindings.Groonga.Raw.Plugin
                        Bindings.Groonga.CommandAPI
                        Bindings.Groonga.Types
   build-depends:       base          >= 4.5 && < 5
@@ -28,7 +29,7 @@ library
   hs-source-dirs:      .
   build-tools:         hsc2hs
   default-language:    Haskell2010
-  pkgconfig-depends:   groonga >= 4.0.0
+  pkgconfig-depends:   groonga >= 4.0.1
 
 source-repository head
   type: git
