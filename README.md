@@ -7,7 +7,7 @@ Low level Haskell binding for Groonga.
 
 ## dependencies
 
-* groonga 4.0.0+
+* groonga 4.0.1+
 * hsc2hs
 * and some cabal packages
 
@@ -15,6 +15,7 @@ Low level Haskell binding for Groonga.
 
 * Bindings.Groonga
 * Bindings.Groonga.Raw
+* Bindings.Groonga.Raw.Plugin
 * Bindings.Groonga.SimpleAPI
 * Bindings.Groonga.Types
 
