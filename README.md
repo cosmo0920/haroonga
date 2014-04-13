@@ -32,4 +32,6 @@ $ cabal install haroonga
 
 ## Support Platform
 
-* Currently, Haroonga supports __Linux platform only__.
+* Currently, Haroonga supports __platform which has pkg-config command only__.
+    - Linux
+    - Mac OSX
