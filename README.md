@@ -1,7 +1,7 @@
 Haroonga
 ===
 
-[![Build Status](https://travis-ci.org/cosmo0920/haroonga.png?branch=master)](https://travis-ci.org/cosmo0920/haroonga)
+[![Build Status](https://travis-ci.org/cosmo0920/haroonga.svg?branch=master)](https://travis-ci.org/cosmo0920/haroonga)
 
 Low level Haskell binding for Groonga.
 
