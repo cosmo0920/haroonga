@@ -540,7 +540,8 @@ import Foreign.Ptr
 #stoptype
 #callback_t grn_plugin_func , Ptr <_grn_ctx> -> IO <grn_rc>
 {- typedef enum {
-            GRN_PROC_TOKENIZER = 1,
+            RN_PROC_INVALID = 0,
+            GRN_PROC_TOKENIZER,
             GRN_PROC_COMMAND,
             GRN_PROC_FUNCTION,
             GRN_PROC_HOOK,

@@ -25,6 +25,8 @@ import Bindings.Groonga.Raw
 #ccall grn_plugin_mutex_lock , Ptr <struct _grn_ctx> -> Ptr <struct _grn_plugin_mutex> -> IO ()
 #ccall grn_plugin_mutex_unlock , Ptr <struct _grn_ctx> -> Ptr <struct _grn_plugin_mutex> -> IO ()
 #ccall grn_plugin_proc_alloc , Ptr <struct _grn_ctx> -> Ptr <grn_user_data> -> CUInt -> CUShort -> IO (Ptr <struct _grn_obj>)
+#ccall grn_plugin_proc_get_var , Ptr <struct _grn_ctx> -> Ptr <grn_user_data> -> CString -> CInt -> IO (Ptr <struct _grn_obj>)
+#ccall grn_plugin_proc_get_var_by_offset , Ptr <struct _grn_ctx> -> Ptr <grn_user_data> -> CUInt -> IO (Ptr <struct _grn_obj>)
 #ccall grn_plugin_win32_base_dir , IO CString
 #ccall grn_plugin_charlen , Ptr <struct _grn_ctx> -> CString -> CUInt -> <grn_encoding> -> IO CInt
 #ccall grn_plugin_isspace , Ptr <struct _grn_ctx> -> CString -> CUInt -> <grn_encoding> -> IO CInt
