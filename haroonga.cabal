@@ -24,7 +24,7 @@ library
   build-depends:       base          >= 4.5 && < 5
                      , bindings-DSL  >= 1.0 && < 1.2
                      , resourcet     >= 0.4
-                     , transformers  >= 0.3 && < 0.4
+                     , transformers  >= 0.3 && < 0.5
                      , monad-control >= 0.3 && < 0.4
   hs-source-dirs:      .
   build-tools:         hsc2hs
