@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                  haroonga
-version:               0.1.1.0
+version:               0.1.2.0
 synopsis:              Low level bindings for Groonga.
 description:           Bindings to Groonga  <http://groonga.org/>.
 license:               LGPL-2.1
@@ -29,7 +29,7 @@ library
   hs-source-dirs:      .
   build-tools:         hsc2hs
   default-language:    Haskell2010
-  pkgconfig-depends:   groonga >= 4.0.1
+  pkgconfig-depends:   groonga >= 4.0.2
 
 source-repository head
   type: git
