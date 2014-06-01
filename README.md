@@ -7,7 +7,7 @@ Low level Haskell binding for Groonga.
 
 ## dependencies
 
-* groonga 4.0.1+
+* groonga 4.0.2+
 * hsc2hs
 * and some cabal packages
 
