@@ -35,3 +35,8 @@ $ cabal install haroonga
 * Currently, Haroonga supports __platform which has pkg-config command only__.
     - Linux
     - Mac OSX
+
+## Haddock
+
+* [Hackage](http://hackage.haskell.org/package/haroonga-0.1.2.0/docs/)
+* [Github Pages ](http://cosmo0920.github.io/haroonga/)
