@@ -30,3 +30,5 @@ import Bindings.Groonga.Raw
 #ccall grn_plugin_win32_base_dir , IO CString
 #ccall grn_plugin_charlen , Ptr <struct _grn_ctx> -> CString -> CUInt -> <grn_encoding> -> IO CInt
 #ccall grn_plugin_isspace , Ptr <struct _grn_ctx> -> CString -> CUInt -> <grn_encoding> -> IO CInt
+#ccall grn_plugin_expr_var_init , Ptr <struct _grn_ctx> -> Ptr <grn_expr_var> -> CString -> CInt -> IO <grn_rc>
+#ccall grn_plugin_command_create , Ptr <struct _grn_ctx> -> CString -> CInt -> <grn_proc_func> -> CUInt -> Ptr <grn_expr_var> -> IO (Ptr <struct _grn_obj>)
