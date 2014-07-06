@@ -29,7 +29,7 @@ library
   hs-source-dirs:      .
   build-tools:         hsc2hs
   default-language:    Haskell2010
-  pkgconfig-depends:   groonga >= 4.0.2
+  pkgconfig-depends:   groonga >= 4.0.3
 
 source-repository head
   type: git
