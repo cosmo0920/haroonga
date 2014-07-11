@@ -3,7 +3,7 @@ language: haskell
 env:
   - GHCVER=7.4.2
   - GHCVER=7.6.3
-  - GHCVER=7.8.2
+  - GHCVER=7.8.3
 
 before_install:
   - curl --silent --location https://github.com/groonga/groonga/raw/master/data/travis/setup.sh | sh
