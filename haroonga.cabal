@@ -19,6 +19,7 @@ library
   exposed-modules:     Bindings.Groonga
                        Bindings.Groonga.Raw
                        Bindings.Groonga.Raw.Plugin
+                       Bindings.Groonga.Raw.Tokenizer
                        Bindings.Groonga.CommandAPI
                        Bindings.Groonga.Types
   build-depends:       base          >= 4.5 && < 5
