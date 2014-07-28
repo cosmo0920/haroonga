@@ -17,7 +17,7 @@ Low level Haskell binding for Groonga.
 * Bindings.Groonga.Raw
 * Bindings.Groonga.Raw.Plugin
 * Bindings.Groonga.Raw.Tokenizer
-* Bindings.Groonga.SimpleAPI
+* Bindings.Groonga.CommandAPI
 * Bindings.Groonga.Types
 
 ## How to install
