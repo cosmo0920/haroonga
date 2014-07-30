@@ -40,4 +40,4 @@ $ cabal install haroonga
 ## Haddock
 
 * [Hackage](http://hackage.haskell.org/package/haroonga/docs/)
-* [Github Pages](http://cosmo0920.github.io/haroonga/doc-index.html)
+* [Github Pages](http://cosmo0920.github.io/haroonga/frames.html)
