@@ -916,6 +916,8 @@ import Foreign.Ptr
 #field max_size , CInt
 #stoptype
 #ccall grn_obj_search , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> Ptr <_grn_obj> -> Ptr <_grn_obj> -> <grn_operator> -> Ptr <_grn_search_optarg> -> IO <grn_rc>
+#callback grn_selector_func , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> Ptr <struct _grn_obj> -> CInt -> Ptr (Ptr <struct _grn_obj>) -> Ptr <struct _grn_obj> -> <grn_operator> -> IO <grn_rc>
+#ccall grn_proc_set_selector , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> <grn_selector_func> -> IO <grn_rc>
 #ccall grn_vector_size , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> IO CUInt
 #ccall grn_vector_add_element , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CString -> CUInt -> CUInt -> CUInt -> IO <grn_rc>
 #ccall grn_vector_get_element , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CUInt -> Ptr CString -> Ptr CUInt -> Ptr CUInt -> IO CUInt
