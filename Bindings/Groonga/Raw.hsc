@@ -1082,6 +1082,8 @@ import Foreign.Ptr
 #ccall grn_text_urldec , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CString -> CString -> CChar -> IO CString
 #ccall grn_text_escape_xml , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CString -> CUInt -> IO <grn_rc>
 #ccall grn_text_time2rfc1123 , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CInt -> IO <grn_rc>
+#ccall grn_text_printf , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> CString -> IO <grn_rc>
+-- #ccall grn_text_vprintf , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> CString -> <__builtin_va_list> -> IO <grn_rc>
 {- typedef struct _grn_obj_format grn_obj_format; -}
 -- #opaque_t _grn_obj_format
 -- #synonym_t grn_obj_format , <_grn_obj_format>
