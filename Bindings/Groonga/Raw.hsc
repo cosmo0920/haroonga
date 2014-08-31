@@ -555,6 +555,7 @@ import Foreign.Ptr
 #num GRN_PROC_NORMALIZER
 #ccall grn_proc_create , Ptr <_grn_ctx> -> CString -> CInt -> <grn_proc_type> -> Ptr <grn_proc_func> -> Ptr <grn_proc_func> -> Ptr <grn_proc_func> -> CUInt -> Ptr <grn_expr_var> -> IO (Ptr <_grn_obj>)
 #ccall grn_proc_get_info , Ptr <_grn_ctx> -> Ptr <grn_user_data> -> Ptr (Ptr <grn_expr_var>) -> Ptr CUInt -> Ptr (Ptr <_grn_obj>) -> IO (Ptr <_grn_obj>)
+#ccall grn_proc_get_type , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> IO <grn_proc_type>
 #ccall grn_table_create , Ptr <_grn_ctx> -> CString -> CUInt -> CString -> CUShort -> Ptr <_grn_obj> -> Ptr <_grn_obj> -> IO (Ptr <_grn_obj>)
 #ccall grn_table_add , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> Ptr () -> CUInt -> Ptr CInt -> IO CUInt
 #ccall grn_table_get , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> Ptr () -> CUInt -> IO CUInt
