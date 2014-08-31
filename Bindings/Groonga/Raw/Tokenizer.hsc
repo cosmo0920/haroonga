@@ -30,6 +30,7 @@ import Bindings.Groonga.Raw.Plugin
 #field encoding , <grn_encoding>
 #field flags , CUInt
 #field have_tokenized_delimiter , CUChar
+#field token_mode , CUInt
 #stoptype
 #ccall grn_tokenizer_query_open , Ptr <struct _grn_ctx> -> CInt -> Ptr (Ptr <struct _grn_obj>) -> CUInt -> IO (Ptr <struct _grn_tokenizer_query>)
 #ccall grn_tokenizer_query_create , Ptr <struct _grn_ctx> -> CInt -> Ptr (Ptr <struct _grn_obj>) -> IO (Ptr <struct _grn_tokenizer_query>)
