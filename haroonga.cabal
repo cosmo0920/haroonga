@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                  haroonga
-version:               0.1.5.0
+version:               0.1.6.0
 synopsis:              Low level bindings for Groonga.
 description:           Bindings to Groonga  <http://groonga.org/>.
 license:               LGPL-2.1
