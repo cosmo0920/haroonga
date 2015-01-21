@@ -293,7 +293,9 @@ import Foreign.Ptr
 #array_field trace , Ptr ()
 #array_field errbuf , CChar
 #stoptype
+-- deprecated
 #num GRN_CTX_USE_QL
+-- deprecated
 #num GRN_CTX_BATCH_MODE
 #num GRN_CTX_PER_DB
 #ccall grn_ctx_init , Ptr <_grn_ctx> -> CInt -> IO <grn_rc>
