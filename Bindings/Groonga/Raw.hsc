@@ -924,6 +924,10 @@ import Foreign.Ptr
 #ccall grn_vector_size , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> IO CUInt
 #ccall grn_vector_add_element , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CString -> CUInt -> CUInt -> CUInt -> IO <grn_rc>
 #ccall grn_vector_get_element , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CUInt -> Ptr CString -> Ptr CUInt -> Ptr CUInt -> IO CUInt
+#ccall grn_uvector_size , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> IO CUInt
+#ccall grn_uvector_element_size , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> IO CUInt
+#ccall grn_uvector_add_element , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> CUInt -> CUInt -> IO <grn_rc>
+#ccall grn_uvector_get_element , Ptr <struct _grn_ctx> -> Ptr <struct _grn_obj> -> CUInt -> Ptr CUInt -> IO CUInt
 #ccall grn_proc_call_next , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> Ptr <_grn_obj> -> Ptr <_grn_obj> -> IO CInt
 #ccall grn_proc_get_ctx_local_data , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> IO (Ptr ())
 #ccall grn_proc_get_hook_local_data , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> IO (Ptr ())
