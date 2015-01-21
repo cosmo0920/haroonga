@@ -1135,6 +1135,8 @@ import Foreign.Ptr
 #ccall grn_ctx_output_str , Ptr <_grn_ctx> -> CString -> CUInt -> IO ()
 #ccall grn_ctx_output_bool , Ptr <_grn_ctx> -> CUChar -> IO ()
 #ccall grn_ctx_output_obj , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> Ptr <_grn_obj_format> -> IO ()
+#ccall grn_ctx_get_output_type , Ptr <struct _grn_ctx> -> IO <grn_content_type>
+#ccall grn_ctx_set_output_type , Ptr <struct _grn_ctx> -> <grn_content_type> -> IO <grn_rc>
 #ccall grn_ctx_get_mime_type , Ptr <_grn_ctx> -> IO CString
 #ccall grn_ctx_recv_handler_set , Ptr <_grn_ctx> -> FunPtr (Ptr <_grn_ctx> -> CInt -> Ptr () -> IO ()) -> Ptr () -> IO ()
 #ccall grn_text_otoj , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> Ptr <_grn_obj> -> Ptr <_grn_obj_format> -> IO <grn_rc>
