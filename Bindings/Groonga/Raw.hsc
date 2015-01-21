@@ -161,6 +161,7 @@ import Foreign.Ptr
 #num GRN_CAS_ERROR
 #num GRN_UNSUPPORTED_COMMAND_VERSION
 #num GRN_NORMALIZER_ERROR
+#num GRN_TOKEN_FILTER_ERROR
 #ccall grn_init , IO <grn_rc>
 #ccall grn_fin , IO <grn_rc>
 {- typedef enum {
