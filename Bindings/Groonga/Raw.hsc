@@ -867,6 +867,7 @@ import Foreign.Ptr
 #num GRN_INFO_SUPPORT_ZLIB
 #num GRN_INFO_SUPPORT_LZO
 #num GRN_INFO_NORMALIZER
+#num GRN_INFO_TOKEN_FILTERS
 #ccall grn_obj_get_info , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> <grn_info_type> -> Ptr <_grn_obj> -> IO (Ptr <_grn_obj>)
 #ccall grn_obj_set_info , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> <grn_info_type> -> Ptr <_grn_obj> -> IO <grn_rc>
 #ccall grn_obj_get_element_info , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> CUInt -> <grn_info_type> -> Ptr <_grn_obj> -> IO (Ptr <_grn_obj>)
