@@ -73,7 +73,7 @@ import Foreign.Ptr
             GRN_OPERATION_NOT_SUPPORTED = -58,
             GRN_ADDRESS_IS_IN_USE = -59,
             GRN_ZLIB_ERROR = -60,
-            GRN_LZO_ERROR = -61,
+            GRN_LZ4_ERROR = -61,
             GRN_STACK_OVER_FLOW = -62,
             GRN_SYNTAX_ERROR = -63,
             GRN_RETRY_MAX = -64,
@@ -149,7 +149,7 @@ import Foreign.Ptr
 #num GRN_OPERATION_NOT_SUPPORTED
 #num GRN_ADDRESS_IS_IN_USE
 #num GRN_ZLIB_ERROR
-#num GRN_LZO_ERROR
+#num GRN_LZ4_ERROR
 #num GRN_STACK_OVER_FLOW
 #num GRN_SYNTAX_ERROR
 #num GRN_RETRY_MAX
@@ -367,7 +367,7 @@ import Foreign.Ptr
 #num GRN_OBJ_COMPRESS_MASK
 #num GRN_OBJ_COMPRESS_NONE
 #num GRN_OBJ_COMPRESS_ZLIB
-#num GRN_OBJ_COMPRESS_LZO
+#num GRN_OBJ_COMPRESS_LZ4
 
 #num GRN_OBJ_WITH_SECTION
 #num GRN_OBJ_WITH_WEIGHT
@@ -837,7 +837,7 @@ import Foreign.Ptr
             GRN_INFO_PARTIAL_MATCH_THRESHOLD,
             GRN_INFO_II_SPLIT_THRESHOLD,
             GRN_INFO_SUPPORT_ZLIB,
-            GRN_INFO_SUPPORT_LZO,
+            GRN_INFO_SUPPORT_LZ4,
             GRN_INFO_NORMALIZER
         } grn_info_type; -}
 #integral_t grn_info_type
@@ -866,7 +866,7 @@ import Foreign.Ptr
 #num GRN_INFO_PARTIAL_MATCH_THRESHOLD
 #num GRN_INFO_II_SPLIT_THRESHOLD
 #num GRN_INFO_SUPPORT_ZLIB
-#num GRN_INFO_SUPPORT_LZO
+#num GRN_INFO_SUPPORT_LZ4
 #num GRN_INFO_NORMALIZER
 #num GRN_INFO_TOKEN_FILTERS
 #ccall grn_obj_get_info , Ptr <_grn_ctx> -> Ptr <_grn_obj> -> <grn_info_type> -> Ptr <_grn_obj> -> IO (Ptr <_grn_obj>)
