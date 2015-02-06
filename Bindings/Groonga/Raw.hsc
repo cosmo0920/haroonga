@@ -1336,12 +1336,12 @@ import Foreign.Ptr
 {- struct _grn_pat_scan_hit {
     grn_id id; unsigned int offset; unsigned int length;
 }; -}
-#starttype struct _grn_pat_scan_hit
+#starttype struct _grn_table_scan_hit
 #field id , CUInt
 #field offset , CUInt
 #field length , CUInt
 #stoptype
-#ccall grn_pat_scan , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> CString -> CUInt -> Ptr <_grn_pat_scan_hit> -> CUInt -> Ptr CString -> IO CInt
+#ccall grn_pat_scan , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> CString -> CUInt -> Ptr <_grn_table_scan_hit> -> CUInt -> Ptr CString -> IO CInt
 #ccall grn_pat_prefix_search , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> Ptr () -> CUInt -> Ptr <_grn_hash> -> IO <grn_rc>
 #ccall grn_pat_suffix_search , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> Ptr () -> CUInt -> Ptr <_grn_hash> -> IO <grn_rc>
 #ccall grn_pat_lcp_search , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> Ptr () -> CUInt -> IO CUInt

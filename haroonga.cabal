@@ -35,7 +35,6 @@ library
     pkgconfig-depends: groonga >= 4.1.0
 
   if os(mingw32)
-    include-dirs: include/groonga/groonga.h
     extra-libraries: groonga
 
 
