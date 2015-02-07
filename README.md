@@ -7,7 +7,7 @@ Low level Haskell binding for Groonga.
 
 ## dependencies
 
-* groonga 4.1.0+
+* groonga 4.1.1+
 * hsc2hs
 * and some cabal packages (see: haroonga.cabal)
 
@@ -36,6 +36,13 @@ $ cabal install haroonga
 * Currently, Haroonga supports __platform which has pkg-config command only__.
     - Linux
     - Mac OSX
+
+### Windows installation (for advanced users) *experimental*
+
+* Install Groonga windows binary (e.g. C:\groonga)
+* And type following command:
+
+    > cabal install --extra-include-dirs='C:\groonga\include\groonga' --extra-lib-dirs='C:\groonga\lib'
 
 ## Haddock
 

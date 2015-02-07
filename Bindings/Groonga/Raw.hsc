@@ -1336,12 +1336,12 @@ import Foreign.Ptr
 {- struct _grn_pat_scan_hit {
     grn_id id; unsigned int offset; unsigned int length;
 }; -}
-#starttype struct _grn_pat_scan_hit
+#starttype struct _grn_table_scan_hit
 #field id , CUInt
 #field offset , CUInt
 #field length , CUInt
 #stoptype
-#ccall grn_pat_scan , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> CString -> CUInt -> Ptr <_grn_pat_scan_hit> -> CUInt -> Ptr CString -> IO CInt
+#ccall grn_pat_scan , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> CString -> CUInt -> Ptr <_grn_table_scan_hit> -> CUInt -> Ptr CString -> IO CInt
 #ccall grn_pat_prefix_search , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> Ptr () -> CUInt -> Ptr <_grn_hash> -> IO <grn_rc>
 #ccall grn_pat_suffix_search , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> Ptr () -> CUInt -> Ptr <_grn_hash> -> IO <grn_rc>
 #ccall grn_pat_lcp_search , Ptr <_grn_ctx> -> Ptr <_grn_pat> -> Ptr () -> CUInt -> IO CUInt
@@ -1360,6 +1360,8 @@ import Foreign.Ptr
 {- typedef struct _grn_dat_cursor grn_dat_cursor; -}
 #opaque_t _grn_dat_cursor
 #synonym_t grn_dat_cursor , <_grn_dat_cursor>
+#ccall grn_dat_scan , Ptr <struct _grn_ctx> -> Ptr <struct _grn_dat> -> CString -> CUInt -> Ptr <struct _grn_table_scan_hit> -> CUInt -> Ptr CString -> IO CInt
+#ccall grn_dat_lcp_search , Ptr <struct _grn_ctx> -> Ptr <struct _grn_dat> -> Ptr () -> CUInt -> IO CUInt
 #ccall grn_dat_create , Ptr <_grn_ctx> -> CString -> CUInt -> CUInt -> CUInt -> IO (Ptr <_grn_dat>)
 #ccall grn_dat_open , Ptr <_grn_ctx> -> CString -> IO (Ptr <_grn_dat>)
 #ccall grn_dat_close , Ptr <_grn_ctx> -> Ptr <_grn_dat> -> IO <grn_rc>
