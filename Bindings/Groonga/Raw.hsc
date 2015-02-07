@@ -1360,6 +1360,8 @@ import Foreign.Ptr
 {- typedef struct _grn_dat_cursor grn_dat_cursor; -}
 #opaque_t _grn_dat_cursor
 #synonym_t grn_dat_cursor , <_grn_dat_cursor>
+#ccall grn_dat_scan , Ptr <struct _grn_ctx> -> Ptr <struct _grn_dat> -> CString -> CUInt -> Ptr <struct _grn_table_scan_hit> -> CUInt -> Ptr CString -> IO CInt
+#ccall grn_dat_lcp_search , Ptr <struct _grn_ctx> -> Ptr <struct _grn_dat> -> Ptr () -> CUInt -> IO CUInt
 #ccall grn_dat_create , Ptr <_grn_ctx> -> CString -> CUInt -> CUInt -> CUInt -> IO (Ptr <_grn_dat>)
 #ccall grn_dat_open , Ptr <_grn_ctx> -> CString -> IO (Ptr <_grn_dat>)
 #ccall grn_dat_close , Ptr <_grn_ctx> -> Ptr <_grn_dat> -> IO <grn_rc>
